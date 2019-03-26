@@ -12,7 +12,7 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface BusinessCard {
+  interface WebBusinessCard {
     'email': string;
     'jobPosition': string;
     'linkedInProfile': string;
@@ -20,13 +20,24 @@ export namespace Components {
     'phone': string;
     'website': string;
   }
-  interface BusinessCardAttributes extends StencilHTMLAttributes {
+  interface WebBusinessCardAttributes extends StencilHTMLAttributes {
     'email'?: string;
     'jobPosition'?: string;
     'linkedInProfile'?: string;
     'name'?: string;
     'phone'?: string;
     'website'?: string;
+  }
+
+  interface WebFancyImage {
+    'imageAlt': string;
+    'imageStyle': string;
+    'imageURL': string;
+  }
+  interface WebFancyImageAttributes extends StencilHTMLAttributes {
+    'imageAlt'?: string;
+    'imageStyle'?: string;
+    'imageURL'?: string;
   }
 
   interface MyComponent {
@@ -61,20 +72,28 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'BusinessCard': Components.BusinessCard;
+    'WebBusinessCard': Components.WebBusinessCard;
+    'WebFancyImage': Components.WebFancyImage;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
-    'business-card': Components.BusinessCardAttributes;
+    'web-business-card': Components.WebBusinessCardAttributes;
+    'web-fancy-image': Components.WebFancyImageAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
 
-  interface HTMLBusinessCardElement extends Components.BusinessCard, HTMLStencilElement {}
-  var HTMLBusinessCardElement: {
-    prototype: HTMLBusinessCardElement;
-    new (): HTMLBusinessCardElement;
+  interface HTMLWebBusinessCardElement extends Components.WebBusinessCard, HTMLStencilElement {}
+  var HTMLWebBusinessCardElement: {
+    prototype: HTMLWebBusinessCardElement;
+    new (): HTMLWebBusinessCardElement;
+  };
+
+  interface HTMLWebFancyImageElement extends Components.WebFancyImage, HTMLStencilElement {}
+  var HTMLWebFancyImageElement: {
+    prototype: HTMLWebFancyImageElement;
+    new (): HTMLWebFancyImageElement;
   };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
@@ -84,12 +103,14 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'business-card': HTMLBusinessCardElement
+    'web-business-card': HTMLWebBusinessCardElement
+    'web-fancy-image': HTMLWebFancyImageElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
-    'business-card': HTMLBusinessCardElement;
+    'web-business-card': HTMLWebBusinessCardElement;
+    'web-fancy-image': HTMLWebFancyImageElement;
     'my-component': HTMLMyComponentElement;
   }
 

@@ -2,7 +2,7 @@
 import {Component, Prop} from '@stencil/core';
 
 @Component({
-  tag: 'business-card',
+  tag: 'web-business-card',
   styleUrl: 'business-card.scss',
   shadow: true
 })
