@@ -3,13 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+  <title>Social Components</title>
   <script src="/build/mycomponent.js"></script>
-
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"-->
+  <!--integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">-->
+  <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Arimo|Playfair+Display" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
 </head>
 <body>
+  <h1>Business Card</h1>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <business-card name="Esmeralda Rodríguez"
+                 job-position="UX/UI Design"
+                 phone="512-773-0889"
+                 email="esmeralda@webtraining.world"
+                 website="https://webtraining.zone"
+                 linked-in-profile="https://linkedin.com"></business-card>
 
+  <business-card name="Luis Ortíz"
+                 job-position="Web Developer"
+                 phone="512-773-0889"
+                 email="luis@webtraining.world"
+                 website="https://webtraining.zone"
+                 linked-in-profile="https://linkedin.com"></business-card>
 </body>
 </html>

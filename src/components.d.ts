@@ -12,6 +12,23 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface BusinessCard {
+    'email': string;
+    'jobPosition': string;
+    'linkedInProfile': string;
+    'name': string;
+    'phone': string;
+    'website': string;
+  }
+  interface BusinessCardAttributes extends StencilHTMLAttributes {
+    'email'?: string;
+    'jobPosition'?: string;
+    'linkedInProfile'?: string;
+    'name'?: string;
+    'phone'?: string;
+    'website'?: string;
+  }
+
   interface MyComponent {
     /**
     * The first name
@@ -44,13 +61,21 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'BusinessCard': Components.BusinessCard;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
+    'business-card': Components.BusinessCardAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
+
+  interface HTMLBusinessCardElement extends Components.BusinessCard, HTMLStencilElement {}
+  var HTMLBusinessCardElement: {
+    prototype: HTMLBusinessCardElement;
+    new (): HTMLBusinessCardElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -59,10 +84,12 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'business-card': HTMLBusinessCardElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
+    'business-card': HTMLBusinessCardElement;
     'my-component': HTMLMyComponentElement;
   }
 
