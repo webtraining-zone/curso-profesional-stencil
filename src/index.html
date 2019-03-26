@@ -15,17 +15,21 @@
   </style>
 </head>
 <body>
-  <h2>Fancy Image</h2>
-  <web-fancy-image image-url="https://picsum.photos/200/200"></web-fancy-image>
-  <web-fancy-image image-url="https://picsum.photos/200/200" image-style="squared"></web-fancy-image>
+  <section>
+    <h2>Countries Finder</h2>
+    <input type="text" class="js-trigger" value="am"/>
+    <web-countries-finder keyword="co" class="js-target-countries"></web-countries-finder>
+  </section>
+  <section>
+    <h2>Fancy Image</h2>
+    <web-fancy-image image-url="https://picsum.photos/200/200"></web-fancy-image>
+    <web-fancy-image image-url="https://picsum.photos/200/200" image-style="squared"></web-fancy-image>
+  </section>
 
-  <h2>Business Card</h2>
-  <web-business-card name="Esmeralda Rodríguez"
-                     job-position="UX/UI Design"
-                     phone="512-773-0889"
-                     email="esmeralda@webtraining.world"
-                     website="https://webtraining.zone"
-                     linked-in-profile="https://linkedin.com"></web-business-card>
+  <!--<h2>Business Card</h2>-->
+  <!--<web-business-card name="Esmeralda Rodríguez" job-position="UX/UI Design" phone="512-773-0889"-->
+  <!--email="esmeralda@webtraining.world" website="https://webtraining.zone"-->
+  <!--linked-in-profile="https://linkedin.com"></web-business-card>-->
 
   <!--<web-business-card name="Luis Ortíz"-->
   <!--job-position="Web Developer"-->
@@ -33,6 +37,37 @@
   <!--email="luis@webtraining.world"-->
   <!--website="https://webtraining.zone"-->
   <!--linked-in-profile="https://linkedin.com"></web-business-card>-->
+
+  <script>
+    (function() {
+      // TODO: Double check your browser compatibility!!!
+      const $input = document.querySelector('.js-trigger');
+      const $countriesFinder = document.querySelector('.js-target-countries');
+
+      $input.addEventListener('input', function() {
+        $countriesFinder.keyword = $input.value;
+      });
+
+    })();
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      // auto-unregister service worker during dev mode
+      navigator.serviceWorker.getRegistration().then(function(registration) {
+        if (registration) {
+          registration.unregister().then(function() { location.reload(true); });
+        }
+      });
+    }
+  </script>
+
+  <style>
+    section {
+      clear: both;
+    }
+  </style>
+
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-import {Component, Prop, State} from '@stencil/core';
+import {Component, Prop, State, Watch} from '@stencil/core';
 
 @Component({
   tag: 'web-countries-finder',
@@ -62,7 +62,7 @@ export class CountriesFinder {
     return array;
   }
 
-  componentWillLoad() {
+  getDataAndModifyState() {
     const serviceURL = `http://countries-finder-api.webtraining.fun/countries/search/${this.keyword}`;
     fetch(serviceURL).
       then((response: Response) => response.json()).
@@ -71,5 +71,15 @@ export class CountriesFinder {
         this.countries = this.mapObjToArray(response);
         console.log(this.countries);
       });
+  }
+
+  componentWillLoad() {
+    this.getDataAndModifyState();
+  }
+
+  @Watch('keyword')
+  watchHandler(newValue: string, oldValue: string) {
+    console.log('The new keyword is: ', newValue, (oldValue));
+    this.getDataAndModifyState();
   }
 }
