@@ -1,0 +1,32 @@
+.web-c-countries-finder {
+
+  .country-card {
+    border: 1px solid #ebeef5;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    color: #303133;
+    max-width: 400px;
+    float: left;
+    margin: 20px;
+    min-height: 230px;
+
+    p {
+      margin: 5px 0;
+      padding: 0;
+    }
+  }
+
+  .country-card__body {
+    padding: 20px;
+  }
+
+  .country-card__flag-container {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .country-card__text-container {
+    margin-top: 10px;
+  }
+}

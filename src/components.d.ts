@@ -29,6 +29,13 @@ export namespace Components {
     'website'?: string;
   }
 
+  interface WebCountriesFinder {
+    'keyword': string;
+  }
+  interface WebCountriesFinderAttributes extends StencilHTMLAttributes {
+    'keyword'?: string;
+  }
+
   interface WebFancyImage {
     'imageAlt': string;
     'imageStyle': string;
@@ -73,12 +80,14 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'WebBusinessCard': Components.WebBusinessCard;
+    'WebCountriesFinder': Components.WebCountriesFinder;
     'WebFancyImage': Components.WebFancyImage;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
     'web-business-card': Components.WebBusinessCardAttributes;
+    'web-countries-finder': Components.WebCountriesFinderAttributes;
     'web-fancy-image': Components.WebFancyImageAttributes;
     'my-component': Components.MyComponentAttributes;
   }
@@ -88,6 +97,12 @@ declare global {
   var HTMLWebBusinessCardElement: {
     prototype: HTMLWebBusinessCardElement;
     new (): HTMLWebBusinessCardElement;
+  };
+
+  interface HTMLWebCountriesFinderElement extends Components.WebCountriesFinder, HTMLStencilElement {}
+  var HTMLWebCountriesFinderElement: {
+    prototype: HTMLWebCountriesFinderElement;
+    new (): HTMLWebCountriesFinderElement;
   };
 
   interface HTMLWebFancyImageElement extends Components.WebFancyImage, HTMLStencilElement {}
@@ -104,12 +119,14 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'web-business-card': HTMLWebBusinessCardElement
+    'web-countries-finder': HTMLWebCountriesFinderElement
     'web-fancy-image': HTMLWebFancyImageElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
     'web-business-card': HTMLWebBusinessCardElement;
+    'web-countries-finder': HTMLWebCountriesFinderElement;
     'web-fancy-image': HTMLWebFancyImageElement;
     'my-component': HTMLMyComponentElement;
   }
